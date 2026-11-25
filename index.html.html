@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Krishna Pathak — Computer Science student focused on AI, machine learning and web development.">
+  <title>Krishna Pathak | Portfolio</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #111a2d;
+      --panel2: #151f35;
+      --text: #edf2ff;
+      --muted: #a7b2ca;
+      --accent: #7c9cff;
+      --accent2: #67e8d4;
+      --line: rgba(255,255,255,.10);
+      --max: 1080px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background:
+        radial-gradient(ellipse at 80% 0%, rgba(124,156,255,.15), transparent 35%),
+        radial-gradient(ellipse at 0% 40%, rgba(103,232,212,.08), transparent 30%),
+        var(--bg);
+      color: var(--text); font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: auto; }
+    header { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(16px); background: rgba(11,16,32,.82); border-bottom: 1px solid var(--line); }
+    nav { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { font-weight: 800; letter-spacing: -.04em; font-size: 1.1rem; }
+    .brand span { color: var(--accent2); }
+    .navlinks { display: flex; align-items: center; gap: 24px; color: var(--muted); font-size: .92rem; }
+    .navlinks a:hover { color: var(--text); }
+    .menu-btn { display: none; border: 1px solid var(--line); background: var(--panel); color: var(--text); border-radius: 10px; padding: 8px 12px; }
+    section { padding: 86px 0; scroll-margin-top: 76px; }
+    .hero { min-height: 78vh; display: flex; align-items: center; padding: 74px 0 90px; }
+    .hero-grid { display: grid; grid-template-columns: 1.45fr .8fr; gap: 52px; align-items: center; }
+    .eyebrow { color: var(--accent2); text-transform: uppercase; letter-spacing: .16em; font-size: .78rem; font-weight: 750; }
+    h1 { font-size: clamp(2.7rem, 7vw, 5.3rem); line-height: 1.04; letter-spacing: -.065em; margin: 16px 0 20px; }
+    h1 .gradient { background: linear-gradient(100deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .lead { max-width: 640px; color: var(--muted); font-size: 1.12rem; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 18px; border-radius: 12px; font-weight: 700; border: 1px solid var(--line); transition: transform .2s, border-color .2s; }
+    .btn:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .btn.primary { background: linear-gradient(120deg, var(--accent), #6e88e8); color: #081024; border: 0; }
+    .hero-card { background: linear-gradient(145deg, rgba(124,156,255,.15), rgba(103,232,212,.07)); border: 1px solid var(--line); border-radius: 28px; padding: 28px; box-shadow: 0 24px 70px rgba(0,0,0,.2); }
+    .avatar { width: 92px; height: 92px; border-radius: 25px; display: grid; place-items: center; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #0b1020; font-size: 2.1rem; font-weight: 900; margin-bottom: 20px; }
+    .hero-card h3 { margin: 0 0 6px; font-size: 1.25rem; }
+    .hero-card p { color: var(--muted); margin: 0; }
+    .mini-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .tag { display: inline-block; padding: 6px 10px; border: 1px solid var(--line); background: rgba(255,255,255,.035); border-radius: 999px; color: #cbd5f1; font-size: .8rem; }
+    .section-head { margin-bottom: 32px; }
+    .section-head h2 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -.045em; margin: 8px 0; line-height: 1.15; }
+    .section-head p { color: var(--muted); max-width: 680px; margin: 0; }
+    .about-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 24px; }
+    .card { border: 1px solid var(--line); background: rgba(17,26,45,.78); border-radius: 20px; padding: 26px; }
+    .card h3 { margin: 0 0 10px; font-size: 1.15rem; }
+    .card p { color: var(--muted); margin: 0; }
+    .info-list { display: grid; gap: 12px; margin-top: 18px; }
+    .info-row { display: flex; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--line); padding-bottom: 10px; font-size: .92rem; }
+    .info-row span:first-child { color: var(--muted); }
+    .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .skill-card { padding: 22px; border-radius: 18px; background: var(--panel); border: 1px solid var(--line); }
+    .skill-card h3 { margin: 0 0 12px; }
+    .skill-card .mini-tags { margin-top: 0; }
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .project { display: flex; flex-direction: column; min-height: 245px; }
+    .project-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+    .project-number { color: var(--accent2); font-weight: 800; font-size: .85rem; }
+    .project h3 { font-size: 1.25rem; margin: 10px 0; }
+    .project p { flex: 1; }
+    .project .mini-tags { margin: 18px 0 0; }
+    .education { border-left: 2px solid var(--accent); padding-left: 22px; }
+    .education .card { position: relative; }
+    .education .card::before { content: ""; position: absolute; left: -31px; top: 30px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent2); border: 4px solid var(--bg); }
+    .date { color: var(--accent2); font-size: .82rem; font-weight: 700; }
+    .contact-box { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; background: linear-gradient(120deg, rgba(124,156,255,.13), rgba(103,232,212,.08)); border: 1px solid var(--line); border-radius: 24px; padding: 32px; }
+    .contact-box h2 { margin: 0 0 8px; font-size: 2rem; letter-spacing: -.04em; }
+    .contact-box p { margin: 0; color: var(--muted); }
+    footer { border-top: 1px solid var(--line); padding: 24px 0; color: var(--muted); font-size: .85rem; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    @media (max-width: 760px) {
+      .hero-grid, .about-grid { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+      .hero-card { max-width: 480px; }
+      .skills { grid-template-columns: repeat(2, 1fr); }
+      .projects { grid-template-columns: 1fr; }
+      .navlinks { display: none; position: absolute; top: 70px; left: 0; right: 0; background: #0e1528; padding: 20px; flex-direction: column; border-bottom: 1px solid var(--line); }
+      .navlinks.open { display: flex; }
+      .menu-btn { display: block; }
+      section { padding: 64px 0; }
+    }
+    @media (max-width: 480px) {
+      .skills { grid-template-columns: 1fr; }
+      .wrap { width: min(var(--max), calc(100% - 28px)); }
+      .hero-card, .card { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="wrap">
+      <a class="brand" href="#home">KP<span>.</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+      <div class="navlinks" id="navLinks">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Computer Science • AI &amp; Machine Learning</div>
+          <h1>Hi, I'm<br><span class="gradient">Krishna Pathak.</span></h1>
+          <p class="lead">A Computer Science student exploring artificial intelligence, machine learning and web development. I enjoy turning ideas into practical projects and learning by building.</p>
+          <div class="actions">
+            <a class="btn primary" href="#projects">Explore my work ↗</a>
+            <a class="btn" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <aside class="hero-card">
+          <div class="avatar">KP</div>
+          <h3>AI/ML Student</h3>
+          <p>Pune, India</p>
+          <div class="mini-tags">
+            <span class="tag">Machine Learning</span><span class="tag">Python</span><span class="tag">Web Development</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">A little about me</div>
+          <h2>Curious by nature.<br>Builder by practice.</h2>
+          <p>I’m developing a strong foundation in computer science while exploring how AI can solve real-world problems.</p>
+        </div>
+        <div class="about-grid">
+          <div class="card">
+            <h3>My approach</h3>
+            <p>I believe in learning concepts properly, applying them through projects, and improving through feedback. My current interests include intelligent applications, data-driven systems and clean, user-friendly websites.</p>
+          </div>
+          <div class="card">
+            <h3>Quick profile</h3>
+            <div class="info-list">
+              <div class="info-row"><span>Degree</span><span>B.Tech CSE (AI &amp; ML)</span></div>
+              <div class="info-row"><span>University</span><span>DY Patil University</span></div>
+              <div class="info-row"><span>Location</span><span>Pune, India</span></div>
+              <div class="info-row"><span>Focus</span><span>AI • ML • Web</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">What I'm learning and using</div>
+          <h2>Skills &amp; tools</h2>
+          <p>A growing toolkit across programming, web technologies and AI.</p>
+        </div>
+        <div class="skills">
+          <div class="skill-card"><h3>Programming</h3><div class="mini-tags"><span class="tag">Python</span><span class="tag">C</span><span class="tag">C++ basics</span></div></div>
+          <div class="skill-card"><h3>Web development</h3><div class="mini-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">React</span></div></div>
+          <div class="skill-card"><h3>AI &amp; data</h3><div class="mini-tags"><span class="tag">Machine Learning</span><span class="tag">Generative AI</span><span class="tag">AI Agents</span><span class="tag">DBMS</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Selected work</div>
+          <h2>Projects</h2>
+          <p>Small projects that helped me practice concepts and build confidence.</p>
+        </div>
+        <div class="projects">
+          <article class="card project">
+            <div class="project-top"><span class="project-number">PROJECT 01</span><span>↗</span></div>
+            <h3>Smart Resume Builder</h3>
+            <p>A resume-building web application with template selection, live preview, editing and PDF export.</p>
+            <div class="mini-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+          </article>
+          <article class="card project">
+            <div class="project-top"><span class="project-number">PROJECT 02</span><span>↗</span></div>
+            <h3>Weather Tracker</h3>
+            <p>A simple weather-focused web project created to practice frontend development and presenting information clearly.</p>
+            <div class="mini-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+          </article>
+          <article class="card project">
+            <div class="project-top"><span class="project-number">PROJECT 03</span><span>↗</span></div>
+            <h3>Turtle Race</h3>
+            <p>A Python mini-project that simulates a race using turtle graphics and introduces event-driven programming.</p>
+            <div class="mini-tags"><span class="tag">Python</span><span class="tag">Turtle</span></div>
+          </article>
+          <article class="card project">
+            <div class="project-top"><span class="project-number">PROJECT 04</span><span>↗</span></div>
+            <h3>Indian Armed Forces Website</h3>
+            <p>A static informational website built to practice page structure, styling and frontend layout.</p>
+            <div class="mini-tags"><span class="tag">HTML</span><span class="tag">CSS</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Academic background</div>
+          <h2>Education</h2>
+        </div>
+        <div class="education">
+          <div class="card">
+            <div class="date">Currently pursuing</div>
+            <h3>B.Tech — Computer Science &amp; Engineering (AI &amp; ML)</h3>
+            <p>Intellipaat School of Technology, DY Patil University</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-box">
+          <div>
+            <div class="eyebrow">Let's connect</div>
+            <h2>Have a project or opportunity?</h2>
+            <p>I'm open to connecting, learning and collaborating.</p>
+          </div>
+          <div class="actions">
+            <!-- Replace the example email and profile links below with your real details. -->
+            <a class="btn primary" href="mailto:YOUR_EMAIL@example.com">Email me ↗</a>
+            <a class="btn" href="https://github.com/YOUR_GITHUB" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn" href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap"><span>© <span id="year"></span> Krishna Pathak</span><span>Designed and built with HTML, CSS &amp; JavaScript.</span></div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
